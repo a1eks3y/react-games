@@ -11,7 +11,6 @@ const App = () => { //37x23 [[1, 2] [3, 1]
     const [mainDirection, setMainDirection] = useState('Right')
     let direction = mainDirection
     const changeDirection = (e) => {
-        console.log(e)
         let snakeArr = JSON.parse(snake)
         // eslint-disable-next-line default-case
         switch (e.code) {
@@ -28,13 +27,11 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 if (snakeArr[snakeArr.length - 2][1] <= snakeArr[snakeArr.length - 1][1]) direction = 'Down'
                 break;
         }
-        console.log(direction)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         !pause && !GameOver && document.addEventListener('keydown', changeDirection)
         !pause && !GameOver && await new Promise(() => setTimeout(() => {
-            document.removeEventListener('keydown', changeDirection)
             let directNow = direction || mainDirection
             let snakeArr = JSON.parse(snake)
             let lastElem = snakeArr[snakeArr.length - 1]
@@ -61,7 +58,6 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                     crash = true
             })
             debugger
-            console.log(snakeArr)
             if (snakeArr[snakeArr.length - 1][0] < 1
                 || snakeArr[snakeArr.length - 1][1] < 1
                 || snakeArr[snakeArr.length - 1][0] > 37
@@ -73,23 +69,24 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 setGameOver(true)
                 setPause(true)
             }
-            appleAte && setApple(JSON.stringify([Math.floor(Math.random() * 36 + 1), Math.floor(Math.random() * 22 + 1)]))
+            appleAte && setApple(window.apple || JSON.stringify([Math.floor(Math.random() * 36 + 1), Math.floor(Math.random() * 22 + 1)]))
             snakeArr = JSON.stringify(snakeArr)
             setMainDirection(direction)
             setSnake(snakeArr)
-        }, 75))
-    }, [snake, pause, GameOver])
+            document.removeEventListener('keydown', changeDirection)
+        }, window.timedelay || 120/(0.01 * score**1.5 + 1)))
+    }, [snake, pause, GameOver]) // eslint-disable-line
 
 
     return (
         <>
-            <div className='App' onClick={() => {
+            <div className='App' style={{cursor: (GameOver || pause) && 'pointer'}} onClick={() => {
                 if (GameOver) {
                     setMainDirection('Right')
                     setGameOver(false)
-                    setScore(0)
-                    setSnake(JSON.stringify([[1, 12], [2, 12], [3, 12]]))
-                    setApple(JSON.stringify([Math.floor(Math.random() * 33 + 4), Math.floor(Math.random() * 22 + 1)]))
+                    setScore(window.score || 0)
+                    setSnake(window.snake || JSON.stringify([[1, 12], [2, 12], [3, 12]]))
+                    setApple(window.apple || JSON.stringify([Math.floor(Math.random() * 33 + 4), Math.floor(Math.random() * 22 + 1)]))
                 } else {
                     pause && setPause(false)
                 }
