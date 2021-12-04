@@ -3,6 +3,22 @@
     width: 740px;
     height: 460px;
     margin: auto;
+    -ms-user-select: none;
+
+    /**
+     * Для мозилы
+     */
+    -moz-user-select: none;
+
+    /**
+     * Для конкверора
+     */
+    -khtml-user-select: none;
+
+    /**
+     * Для Сафари и Хрома
+     */
+    -webkit-user-select: none;
 }
 *{
     box-sizing: border-box;
@@ -16,12 +32,4 @@
     height: 100%;
     background: red;
 }
-.GameOver{
-    font-family: "Blood", serif;
-}
-@font-face {
-    font-family: "Blood";
-    src: url("fonts/blood.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
+

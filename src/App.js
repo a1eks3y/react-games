@@ -14,24 +14,36 @@ const App = () => { //37x23 [[1, 2] [3, 1]
         let snakeArr = JSON.parse(snake)
         // eslint-disable-next-line default-case
         switch (e.code) {
-            case 'KeyW' || 'ArrowUp':
+            case 'KeyW':
                 if (snakeArr[snakeArr.length - 1][1] <= snakeArr[snakeArr.length - 2][1]) direction = 'Up'
                 break;
-            case 'KeyA' || 'ArrowLeft':
+            case 'KeyA':
                 if (snakeArr[snakeArr.length - 1][0] <= snakeArr[snakeArr.length - 2][0]) direction = 'Left'
                 break;
-            case 'KeyD' || 'ArrowRight':
+            case 'KeyD':
                 if (snakeArr[snakeArr.length - 2][0] <= snakeArr[snakeArr.length - 1][0]) direction = 'Right'
                 break;
-            case 'KeyS' || 'ArrowDown':
+            case 'KeyS':
+                if (snakeArr[snakeArr.length - 2][1] <= snakeArr[snakeArr.length - 1][1]) direction = 'Down'
+                break;
+            case 'ArrowUp':
+                if (snakeArr[snakeArr.length - 1][1] <= snakeArr[snakeArr.length - 2][1]) direction = 'Up'
+                break;
+            case 'ArrowLeft':
+                if (snakeArr[snakeArr.length - 1][0] <= snakeArr[snakeArr.length - 2][0]) direction = 'Left'
+                break;
+            case 'ArrowRight':
+                if (snakeArr[snakeArr.length - 2][0] <= snakeArr[snakeArr.length - 1][0]) direction = 'Right'
+                break;
+            case 'ArrowDown':
                 if (snakeArr[snakeArr.length - 2][1] <= snakeArr[snakeArr.length - 1][1]) direction = 'Down'
                 break;
         }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(async () => {
+    useEffect(() => {
         !pause && !GameOver && document.addEventListener('keydown', changeDirection)
-        !pause && !GameOver && await new Promise(() => setTimeout(() => {
+        !pause && !GameOver && new Promise(() => setTimeout(() => {
             let directNow = direction || mainDirection
             let snakeArr = JSON.parse(snake)
             let lastElem = snakeArr[snakeArr.length - 1]
@@ -57,7 +69,6 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 if (el[0] === arr[arr.length - 1][0] && el[1] === arr[arr.length - 1][1] && i !== arr.length - 1)
                     crash = true
             })
-            debugger
             if (snakeArr[snakeArr.length - 1][0] < 1
                 || snakeArr[snakeArr.length - 1][1] < 1
                 || snakeArr[snakeArr.length - 1][0] > 37
@@ -69,13 +80,13 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 setGameOver(true)
                 setPause(true)
             }
-            appleAte && setApple(window.apple || JSON.stringify([Math.floor(Math.random() * 36 + 1), Math.floor(Math.random() * 22 + 1)]))
+            appleAte && setApple(window.snake?.apple || JSON.stringify([Math.floor(Math.random() * 36 + 1), Math.floor(Math.random() * 22 + 1)]))
             snakeArr = JSON.stringify(snakeArr)
             setMainDirection(direction)
             setSnake(snakeArr)
             document.removeEventListener('keydown', changeDirection)
-        }, window.timedelay || 120/(0.01 * score**1.5 + 1)))
-    }, [snake, pause, GameOver]) // eslint-disable-line
+        }, window.snake?.timedelay || 120/(0.01 * score**1.5 + 1)))
+    }, [snake, pause])
 
 
     return (
@@ -84,9 +95,9 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 if (GameOver) {
                     setMainDirection('Right')
                     setGameOver(false)
-                    setScore(window.score || 0)
-                    setSnake(window.snake || JSON.stringify([[1, 12], [2, 12], [3, 12]]))
-                    setApple(window.apple || JSON.stringify([Math.floor(Math.random() * 33 + 4), Math.floor(Math.random() * 22 + 1)]))
+                    setScore(window.snake?.score || 0)
+                    setSnake(window.snake?.snake || JSON.stringify([[1, 12], [2, 12], [3, 12]]))
+                    setApple(window.snake?.apple || JSON.stringify([Math.floor(Math.random() * 33 + 4), Math.floor(Math.random() * 22 + 1)]))
                 } else {
                     pause && setPause(false)
                 }
