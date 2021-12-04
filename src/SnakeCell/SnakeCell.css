@@ -1,0 +1,11 @@
+.snakeCell{
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    position: absolute;
+}
+.CellBG{
+    width: 100%;
+    height: 100%;
+    background: #33DE00;
+}

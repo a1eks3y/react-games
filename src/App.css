@@ -1,0 +1,27 @@
+.App {
+    background-color: black;
+    width: 740px;
+    height: 460px;
+    margin: auto;
+}
+*{
+    box-sizing: border-box;
+}
+.apple{
+    width: calc(100% / 37);
+    height: calc(100% / 23);
+}
+.bg-apple{
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+.GameOver{
+    font-family: "Blood", serif;
+}
+@font-face {
+    font-family: "Blood";
+    src: url("fonts/blood.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
