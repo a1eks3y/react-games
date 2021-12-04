@@ -15,16 +15,16 @@ const App = () => { //37x23 [[1, 2] [3, 1]
         let snakeArr = JSON.parse(snake)
         // eslint-disable-next-line default-case
         switch (e.code) {
-            case 'KeyW':
+            case 'KeyW' || 'ArrowUp':
                 if (snakeArr[snakeArr.length - 1][1] <= snakeArr[snakeArr.length - 2][1]) direction = 'Up'
                 break;
-            case 'KeyA':
+            case 'KeyA' || 'ArrowLeft':
                 if (snakeArr[snakeArr.length - 1][0] <= snakeArr[snakeArr.length - 2][0]) direction = 'Left'
                 break;
-            case 'KeyD':
+            case 'KeyD' || 'ArrowRight':
                 if (snakeArr[snakeArr.length - 2][0] <= snakeArr[snakeArr.length - 1][0]) direction = 'Right'
                 break;
-            case 'KeyS':
+            case 'KeyS' || 'ArrowDown':
                 if (snakeArr[snakeArr.length - 2][1] <= snakeArr[snakeArr.length - 1][1]) direction = 'Down'
                 break;
         }
@@ -87,6 +87,7 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 if (GameOver) {
                     setMainDirection('Right')
                     setGameOver(false)
+                    setScore(0)
                     setSnake(JSON.stringify([[1, 12], [2, 12], [3, 12]]))
                     setApple(JSON.stringify([Math.floor(Math.random() * 33 + 4), Math.floor(Math.random() * 22 + 1)]))
                 } else {
@@ -94,9 +95,6 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 }
 
             }}>
-                {
-
-                }
                 {
                     pause && !GameOver
                         ?
