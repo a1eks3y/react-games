@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/react-games/static/css/main.8c241fab.chunk.css",
-    "main.js": "/react-games/static/js/main.235d84f8.chunk.js",
-    "main.js.map": "/react-games/static/js/main.235d84f8.chunk.js.map",
+    "main.css": "/react-games/static/css/main.51c1e5e1.chunk.css",
+    "main.js": "/react-games/static/js/main.5618b3dd.chunk.js",
+    "main.js.map": "/react-games/static/js/main.5618b3dd.chunk.js.map",
     "runtime-main.js": "/react-games/static/js/runtime-main.79f343a4.js",
     "runtime-main.js.map": "/react-games/static/js/runtime-main.79f343a4.js.map",
-    "static/js/2.5356b7bc.chunk.js": "/react-games/static/js/2.5356b7bc.chunk.js",
-    "static/js/2.5356b7bc.chunk.js.map": "/react-games/static/js/2.5356b7bc.chunk.js.map",
+    "static/js/2.2537fdbe.chunk.js": "/react-games/static/js/2.2537fdbe.chunk.js",
+    "static/js/2.2537fdbe.chunk.js.map": "/react-games/static/js/2.2537fdbe.chunk.js.map",
     "index.html": "/react-games/index.html",
-    "static/css/main.8c241fab.chunk.css.map": "/react-games/static/css/main.8c241fab.chunk.css.map",
-    "static/js/2.5356b7bc.chunk.js.LICENSE.txt": "/react-games/static/js/2.5356b7bc.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/react-games/static/media/blood.d4944d69.ttf"
+    "static/css/main.51c1e5e1.chunk.css.map": "/react-games/static/css/main.51c1e5e1.chunk.css.map",
+    "static/js/2.2537fdbe.chunk.js.LICENSE.txt": "/react-games/static/js/2.2537fdbe.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/react-games/static/media/blood.d4944d69.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.79f343a4.js",
-    "static/js/2.5356b7bc.chunk.js",
-    "static/css/main.8c241fab.chunk.css",
-    "static/js/main.235d84f8.chunk.js"
+    "static/js/2.2537fdbe.chunk.js",
+    "static/css/main.51c1e5e1.chunk.css",
+    "static/js/main.5618b3dd.chunk.js"
   ]
 }
