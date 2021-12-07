@@ -106,7 +106,7 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 {
                     pause && !GameOver
                         ?
-                        <div style={{height: '100%', color: 'white'}}>Кликните, чтобы начать</div>
+                        <div style={{height: '100%', color: 'white'}}>Click to start</div>
                         :
                         GameOver ? <div className='GameOver' style={{
                                 alignContent: 'center',
