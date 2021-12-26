@@ -75,7 +75,7 @@ const App = () => { //37x23 [[1, 2] [3, 1]
                 || snakeArr[snakeArr.length - 1][1] > 23)
                 crash = true
             !appleAte && snakeArr.shift()
-            appleAte && setScore(score + 1)
+            appleAte && setScore(prev => prev + 1)
             if (crash) {
                 setGameOver(true)
                 setPause(true)
