@@ -23,6 +23,7 @@ code {
   src: url("./fonts/blood.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
+  font-display: block;
 }
 .GameOver{
   font-family: "Blood";
